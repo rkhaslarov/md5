@@ -10,4 +10,5 @@ Package.onUse(function(api) {
 	api.versionsFrom('1.2.1');
 	api.use(['ecmascript']);
 	api.addFiles(['md5.js']);
+	api.export('md5');
 });
