@@ -1,27 +1,35 @@
-rkhaslarov:namespace
+rkhaslarov:md5
 =================
 
-This package provides a simple javascript app namespacing utility.
-It means that we have one global object App and define method which helps to create new namespace.
+Javascript implementation of MD5 function for MeteorJS.
 
 # Usage
-Calling the App.define function creates a global namespace and returns it.
+
+Calculate the ([hex](https://en.wikipedia.org/wiki/Hexadecimal)-encoded)
+[MD5](https://en.wikipedia.org/wiki/MD5) hash of a given string value:
+
 ```js
-let module = App.define('modules.module1');
-console.log(module === App.modules.module1); //true
+var hash = md5("value"); // "2063c1608d6e0baf80249c42e2be5804"
 ```
-Also App.define has third parameter which can be object or function. 
-When passing a function 'this' context is bound to the created namespace. 
+
+Calculate the ([hex](https://en.wikipedia.org/wiki/Hexadecimal)-encoded)
+[HMAC](https://en.wikipedia.org/wiki/HMAC)-MD5 hash of a given string value and
+key:
+
 ```js
-//App.modules.module1.property 
-App.define('modules.module1', function(){
-	this.property = 'test';
-}); 
+var hash = md5("value", "key"); // "01433efd5f16327ea4b31144572c67f6"
 ```
-If passing an object the key/value pairs will be added to the created namespace.
+
+Calculate the raw [MD5](https://en.wikipedia.org/wiki/MD5) hash of a given
+string value:
+
 ```js
-//App.modules.module1.property 
-App.define('modules.module1', {
-	property: 'test'
-}); 
+var hash = md5("value", null, true);
+```
+
+Calculate the raw [HMAC](https://en.wikipedia.org/wiki/HMAC)-MD5 hash of a given
+string value and key:
+
+```js
+var hash = md5("value", "key", true);
 ```
